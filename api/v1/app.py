@@ -10,13 +10,8 @@ app.register_blueprint(app_views)
 
 
 @app.teardown_appcontext
-<<<<<<< HEAD
-def teardown_db(exception):
-    """closes the storage on teardown"""
-=======
 def treardown(err):
     """  close """
->>>>>>> 9871ece05a48ef978f8b9d04d9dc8fe41a331df7
     storage.close()
 
 
@@ -26,11 +21,7 @@ def not_found(error):
     return jsonify({"error": "Not found"}), 404
 
 
-<<<<<<< HEAD
-if __name__ == '__main__':
-=======
 if __name__ == "__main__":
->>>>>>> 9871ece05a48ef978f8b9d04d9dc8fe41a331df7
     host = os.getenv('HBNB_API_HOST', '0.0.0.0')
     port = int(os.getenv('HBNB_API_PORT', '5000'))
     app.run(host=host, port=port, threaded=True)
