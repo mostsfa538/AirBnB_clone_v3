@@ -16,7 +16,7 @@ def get_city_associated_state(state_id):
         abort(404)
     cities = storage.all(City).values()
     cities = [val for val in cities if val.state_id == state_id]
-    return jsonify([cities.to_dict() for city in cities])
+    return jsonify([city.to_dict() for city in cities])
 
 
 @app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)
@@ -32,7 +32,7 @@ def get_city(city_id):
                  strict_slashes=False)
 def delete_city(city_id):
     """ delete city """
-    city = storage.get(State, city_id)
+    city = storage.get(City, city_id)
     if city is None:
         abort(404)
     storage.delete(city)
